@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    console.log('DOM fully loaded and parsed');
+    // Tester to check entry of function
+    // console.log('DOM fully loaded and parsed');
 
     let div = document.createElement('div');
     div.className = "header-container";
@@ -52,7 +52,42 @@ document.addEventListener("DOMContentLoaded", function () {
     div.appendChild(h6);
     document.body.appendChild(div);
 
-    
+    // Array of Colors function
+    div.addEventListener("dblclick", function (e) {
+        const colors = ["#C2272D", "#db7c0f", "#FFFF01", "#009245", "#91c3db", "#ca04ed", "#612F90", "#aeff00"];
+        e.target.style.color = colors[Math.floor(Math.random() * colors.length)];
+    });
+
+    // Add a List item for Button click Template literal
+    let i=1; 
+    liCounter=1;
+    let button = document.getElementsByClassName('btnClass');
+    button[0].addEventListener("click", function () {
+        let li = document.createElement('li');
+        li.id=i;
+        let liText = document.createTextNode(`This is list item ${i}`);
+        li.appendChild(liText);
+        document.body.appendChild(li);
+        i++;
+
+        // li.addEventListener('click', function(){
+        //     changeColor(li);
+        // });
+
+        li.addEventListener('dblclick', function(){
+            removeListItem(li);
+        });
+
+        ul.appendChild(li);
+        liCounter++;
+    })
+
+    function removeListItem(li){
+        li.parentNode.removeChild(li);
+
+    }
+
+
 
 });
 
